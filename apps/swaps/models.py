@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
 class Item(models.Model):
     name = models.CharField(max_length=50)
     picture = models.ImageField(upload_to='photos', blank=True, null=True)
@@ -19,6 +20,7 @@ class Item(models.Model):
 #     description = models.TextField(max_length=250)
 #     items = models.ManyToManyField('Item')
 
+
 class Swap(models.Model):
     name = models.CharField(max_length=50)
     STATUS_CHOICES = (
@@ -34,8 +36,3 @@ class Swap(models.Model):
 
     def __str__(self):
         return self.name
-
-
-
-
-
