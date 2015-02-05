@@ -11,6 +11,9 @@ class Item(models.Model):
     condition = models.CharField(max_length=50)  # change to multi choice.
     status = models.CharField(max_length=50) # change to multi choice.
 
+    def __str__(self):
+        return self.name
+
 # class ItemGroup(models.Model):
 #     name = models.CharField(max_length=50)
 #     description = models.TextField(max_length=250)
@@ -28,6 +31,9 @@ class Swap(models.Model):
     initiator_items = models.ManyToManyField(Item, related_name="initiator_items_swap")
     other_party_items = models.ManyToManyField(Item, related_name="other_party_items_swap")
     other_party = models.ForeignKey(User, related_name="other_party_swap")
+
+    def __str__(self):
+        return self.name
 
 
 
