@@ -1,5 +1,5 @@
 """
-Django settings for swapshot project.
+Django settings for swapshop project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'apps.swaps',
     'corsheaders',
+    'rest_framework'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -61,9 +62,9 @@ CORS_ORIGIN_WHITELIST = (
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-ROOT_URLCONF = 'swapshot.urls'
+ROOT_URLCONF = 'swapshop.urls'
 
-WSGI_APPLICATION = 'swapshot.wsgi.application'
+WSGI_APPLICATION = 'swapshop.wsgi.application'
 
 
 # Database
