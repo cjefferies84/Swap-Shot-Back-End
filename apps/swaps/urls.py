@@ -12,5 +12,5 @@ urlpatterns = patterns(
     # url(r'^ingredients$', IngredientList.as_view(), name='ingredient-list'),
 
     # Handling media files
-    # url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
