@@ -51,3 +51,4 @@ docs/_build/
 
 db.sqlite3
 apps/swaps/media
+*.iml

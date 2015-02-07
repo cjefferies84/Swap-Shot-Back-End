@@ -1,7 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
-# Create your models here.
+
+@receiver(post_save, sender=User)
+def create_auth_token(sender, instance=None, created=False, **kwargs):
+    """Creates a token whenever a User is created"""
+    if created:
+        Token.objects.create(user=instance)
+
+
+class Test(models.Model):
+    name = models.CharField(max_length=50)
+    picture = models.ImageField(upload_to='photos', blank=True, null=True)
 
 
 class Item(models.Model):
