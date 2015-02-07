@@ -12,11 +12,6 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
         Token.objects.create(user=instance)
 
 
-class Test(models.Model):
-    name = models.CharField(max_length=50)
-    picture = models.ImageField(upload_to='photos', blank=True, null=True)
-
-
 class Item(models.Model):
     name = models.CharField(max_length=50)
     picture = models.ImageField(upload_to='photos', blank=True, null=True)
