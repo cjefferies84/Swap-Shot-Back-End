@@ -20,3 +20,8 @@ class ItemList(generics.ListAPIView):
 class ItemDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ItemSerializer
     queryset = Item.objects.all()
+
+
+class MySwaps(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = SwapSerializer
+    queryset = Swap.objects.all()

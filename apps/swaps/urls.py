@@ -4,7 +4,7 @@ from views import *
 urlpatterns = patterns(
     '',
 
-    url(r'^swaps/$', SwapList.as_view(), name='swaps'),
+    url(r'^my-swaps/(?P<pk>[0-9]+)$', MySwaps.as_view(), name='swaps'),
     url(r'^items/$', ItemList.as_view(), name='items'),
     url(r'^items/(?P<pk>[0-9]+)$', ItemDetail.as_view(), name='item-detail'),
     # url(r'^recipes/(?P<pk>[0-9]+)$', RecipeDetail.as_view(), name='recipe-list'),
