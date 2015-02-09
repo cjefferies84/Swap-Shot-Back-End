@@ -12,7 +12,7 @@ class SwapList(generics.ListAPIView):
 #     queryset = Swap.objects.all()
 
 
-class ItemList(generics.ListAPIView):
+class ItemList(generics.ListCreateAPIView):
     serializer_class = ItemSerializer
     queryset = Item.objects.all()
 
