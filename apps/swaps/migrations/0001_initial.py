@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=50)),
-                ('status', models.CharField(max_length=50)),
+                ('status', models.CharField(default=b'AVAILABLE', max_length=15, choices=[(b'AVAILABLE', b'Available'), (b'CLOSED', b'Closed'), (b'PENDING', b'Pending')])),
                 ('initiator', models.ForeignKey(related_name='initiator_swap', to=settings.AUTH_USER_MODEL)),
                 ('initiator_items', models.ManyToManyField(related_name='initiator_items_swap', to='swaps.Item')),
                 ('other_party', models.ForeignKey(related_name='other_party_swap', to=settings.AUTH_USER_MODEL)),
