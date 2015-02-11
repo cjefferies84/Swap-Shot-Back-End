@@ -66,7 +66,7 @@ ROOT_URLCONF = 'swapshop.urls'
 
 WSGI_APPLICATION = 'swapshop.wsgi.application'
 
-MEDIA_ROOT = '/Users/davidjohnson/dev/swapup/backend/apps/swaps/media/'
+MEDIA_ROOT = 'apps/swaps/media/'
 
 MEDIA_URL = '/media/'
 
