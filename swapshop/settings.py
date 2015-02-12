@@ -63,8 +63,7 @@ MIDDLEWARE_CLASSES = (
 
 CORS_ORIGIN_WHITELIST = (
         'localhost:8000',
-        'localhost/',
-
+        'localhost/'
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -73,7 +72,7 @@ ROOT_URLCONF = 'swapshop.urls'
 
 WSGI_APPLICATION = 'swapshop.wsgi.application'
 
-MEDIA_ROOT = 'apps/swaps/media/'
+MEDIA_ROOT = 'media/'
 
 MEDIA_URL = '/media/'
 
