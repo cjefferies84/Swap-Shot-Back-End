@@ -2,7 +2,7 @@ from rest_framework import generics
 from serializers import *
 
 
-class SwapList(generics.ListAPIView):
+class SwapList(generics.ListCreateAPIView):
     serializer_class = SwapSerializer
     queryset = Swap.objects.all()
 
@@ -22,6 +22,6 @@ class ItemDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Item.objects.all()
 
 
-class MySwaps(generics.RetrieveUpdateDestroyAPIView):
+class SwapDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = SwapSerializer
     queryset = Swap.objects.all()
