@@ -5,6 +5,7 @@ urlpatterns = patterns(
     '',
 
     url(r'^swaps/$', SwapList.as_view(), name='swaps'),
+    url(r'^swaps-nested/$', SwapNestedList.as_view(), name='swaps'),
     url(r'^swaps/(?P<pk>[0-9]+)$', SwapDetail, name='swap-detail'),
     url(r'^items/$', ItemList.as_view(), name='items'),
     url(r'^items/(?P<pk>[0-9]+)$', ItemDetail.as_view(), name='item-detail'),
