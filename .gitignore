@@ -53,3 +53,4 @@ db.sqlite3
 apps/swaps/media
 *.iml
 .DS_Store
+.orig
