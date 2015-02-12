@@ -13,11 +13,20 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 
 
 class Item(models.Model):
+
+    CONDITION_CHOICES = (
+        ('Poor', 'Poor'),
+        ('Fair', 'Fair'),
+        ('Good', 'Good'),
+        ('Excellent', 'Excellent'),
+        ('Like New', 'Like New'),
+        ('New', 'New')
+    )
     name = models.CharField(max_length=50)
     picture = models.ImageField(upload_to='photos', blank=True, null=True)
     user = models.ForeignKey(User)
     description = models.TextField(max_length=250)
-    condition = models.CharField(max_length=50)  # change to multi choice.
+    condition = models.CharField(max_length=15, choices=CONDITION_CHOICES)
     status = models.CharField(max_length=50) # change to multi choice.
 
     def __str__(self):

@@ -4,7 +4,9 @@ from views import *
 urlpatterns = patterns(
     '',
 
-    url(r'^my-swaps/(?P<pk>[0-9]+)$', MySwaps.as_view(), name='swaps'),
+    url(r'^swaps/$', SwapList.as_view(), name='swaps'),
+    url(r'^swaps-nested/$', SwapNestedList.as_view(), name='swaps'),
+    url(r'^swaps/(?P<pk>[0-9]+)$', SwapDetail, name='swap-detail'),
     url(r'^items/$', ItemList.as_view(), name='items'),
     url(r'^items/(?P<pk>[0-9]+)$', ItemDetail.as_view(), name='item-detail'),
     url(r'^api-token-auth/', 'rest_framework.authtoken.views.obtain_auth_token'),
