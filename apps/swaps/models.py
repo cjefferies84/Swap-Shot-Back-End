@@ -22,6 +22,9 @@ class Item(models.Model):
         ('Like New', 'Like New'),
         ('New', 'New')
     )
+
+
+
     name = models.CharField(max_length=50)
     picture = models.ImageField(upload_to='photos', blank=True, null=True)
     user = models.ForeignKey(User)
@@ -45,6 +48,7 @@ class Swap(models.Model):
         ('CLOSED', 'Closed'),
         ('PENDING', 'Pending'),
     )
+
     status = models.CharField(max_length=15, choices=STATUS_CHOICES, default='AVAILABLE')
     initiator = models.ForeignKey(User, related_name="initiator_swap")
     initiator_items = models.ManyToManyField(Item, related_name="initiator_items_swap")
