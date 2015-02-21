@@ -50,7 +50,7 @@ coverage.xml
 docs/_build/
 
 db.sqlite3
-apps/swaps/media
+media/
 *.png
 *.iml
 .DS_Store
