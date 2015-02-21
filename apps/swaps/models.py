@@ -5,6 +5,12 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
+
+
+
+
+
+
 @receiver(post_save, sender=User)
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     """Creates a token whenever a User is created"""
@@ -42,7 +48,7 @@ class Item(models.Model):
 
 
 class Swap(models.Model):
-    name = models.CharField(max_length=50)
+
     STATUS_CHOICES = (
         ('AVAILABLE', 'Available'),
         ('CLOSED', 'Closed'),
@@ -56,4 +62,5 @@ class Swap(models.Model):
     other_party = models.ForeignKey(User, related_name="other_party_swap")
 
     def __str__(self):
-        return self.name
+        return self.status
+
