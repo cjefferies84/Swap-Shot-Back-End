@@ -1,7 +1,39 @@
+from django.shortcuts import render_to_response
+from django.http import HttpResponse
+from django.contrib import auth
+from rest_framework.renderers import JSONRenderer
+from rest_framework.decorators import api_view
+from django.core.context_processors import csrf
+from rest_framework.response import Response
+from rest_framework.authentication import TokenAuthentication
+from rest_framework import status
 from rest_framework import generics
-from serializers import *
-from django.http.response import HttpResponse
+from rest_framework import permissions
 
+from serializers import *
+from rest_framework.authtoken.views import ObtainAuthToken
+
+def obtain_user_from_token(request):
+    auth = TokenAuthentication()
+    response = auth.authenticate_credentials(request.DATA['token'])
+
+    user_id = response[0].id
+
+    return HttpResponse(user_id)
+
+
+
+# def logout(request):
+#     auth.logout(request)
+#     return JSONResponse([{'success': 'Logged out!'}])
+
+
+# class JSONResponse(HttpResponse):
+#     def __init__(self, data, **kwargs):
+#         content = JSONRenderer().render(data)
+#         kwargs['content_type'] = 'application/json'
+#         super(JSONResponse, self).__init__(content, **kwargs)
+#
 
 class SwapList(generics.ListCreateAPIView):
     serializer_class = SwapSerializer
@@ -56,3 +88,20 @@ class SwapDetail(generics.RetrieveUpdateDestroyAPIView):
                 old_swap.status = obj['status']
                 old_swap.status.save()
         return HttpResponse(old_swap.status)
+
+
+class UserList(generics.ListCreateAPIView):
+    """List all users or create a new User"""
+   # permission_classes = (permissions.IsAuthenticated,)
+    model = User
+    serializer_class = UserSerializer
+    queryset = User.objects.all()
+
+
+
+
+class UserDetail(generics.RetrieveAPIView):
+    """Retrieve, update or delete a User instance."""
+    permission_classes = (permissions.IsAuthenticated,)
+    model = User
+    serializer_class = UserSerializer

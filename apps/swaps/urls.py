@@ -10,10 +10,9 @@ urlpatterns = patterns(
     url(r'^items/$', ItemList.as_view(), name='items'),
     url(r'^items/(?P<pk>[0-9]+)$', ItemDetail.as_view(), name='item-detail'),
     url(r'^api-token-auth/', 'rest_framework.authtoken.views.obtain_auth_token'),
-
-    # url(r'^recipes/(?P<pk>[0-9]+)$', RecipeDetail.as_view(), name='recipe-list'),
-    # url(r'^add-item$', AddRecipe.as_view(), name='add-item'),
-    # url(r'^ingredients$', IngredientList.as_view(), name='ingredient-list'),
+    url(r'^user-token/$', obtain_user_from_token),
+    url(r'^users$', UserList.as_view(), name='user-list'),
+    url(r'^users/(?P<pk>[0-9]+)$', UserDetail.as_view(), name='user-detail'),
 
     # Handling media files
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
