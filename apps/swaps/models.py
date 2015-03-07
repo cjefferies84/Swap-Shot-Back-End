@@ -54,12 +54,6 @@ class Item(models.Model):
     def __str__(self):
         return self.name
 
-# class ItemGroup(models.Model):
-#     name = models.CharField(max_length=50)
-#     description = models.TextField(max_length=250)
-#     items = models.ManyToManyField('Item')
-
-
 class Swap(models.Model):
 
     STATUS_CHOICES = (
