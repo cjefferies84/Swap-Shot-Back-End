@@ -47,7 +47,7 @@ class Item(models.Model):
     name = models.CharField(max_length=50)
     picture = models.ImageField(upload_to='photos', blank=True, null=True)
     user = models.ForeignKey(User)
-    description = models.TextField(max_length=250)
+    description = models.TextField(max_length=500)
     condition = models.CharField(max_length=15, choices=CONDITION_CHOICES)
     status = models.CharField(max_length=50) # change to multi choice.
 
