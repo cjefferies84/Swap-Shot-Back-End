@@ -13,6 +13,7 @@ from rest_framework import permissions
 from serializers import *
 from rest_framework.authtoken.views import ObtainAuthToken
 
+
 def obtain_user_from_token(request):
     auth = TokenAuthentication()
     response = auth.authenticate_credentials(request.DATA['token'])
@@ -20,8 +21,6 @@ def obtain_user_from_token(request):
     user_id = response[0].id
 
     return HttpResponse(user_id)
-
-
 
 # def logout(request):
 #     auth.logout(request)
@@ -34,6 +33,7 @@ def obtain_user_from_token(request):
 #         kwargs['content_type'] = 'application/json'
 #         super(JSONResponse, self).__init__(content, **kwargs)
 #
+
 
 class SwapList(generics.ListCreateAPIView):
     serializer_class = SwapSerializer
@@ -58,6 +58,11 @@ class ItemList(generics.ListCreateAPIView):
 class ItemDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ItemSerializer
     queryset = Item.objects.all()
+
+
+class MyItemDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ItemSerializer
+    queryset = Item.objects.filter(user__username="?")
 
 
 class SwapDetail(generics.RetrieveUpdateDestroyAPIView):
